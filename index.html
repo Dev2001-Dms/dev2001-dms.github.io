@@ -137,6 +137,47 @@
     .site-loader.is-hidden { opacity:0; visibility:hidden; }
     .loader-core { width:62px; height:62px; border-radius:50%; border:2px solid rgba(69,233,255,.18); border-top-color:var(--cyan); border-right-color:var(--pink); box-shadow:0 0 30px rgba(141,92,255,.4); animation:spin 1s linear infinite; }
     @keyframes spin { to { transform:rotate(360deg); } }
+    /* Slide-like academic experience inspired by the supplied dashboard reference. */
+    main { scroll-snap-type:y proximity; }
+    main > section { scroll-snap-align:start; scroll-margin-top:96px; position:relative; }
+    main > section::before { content:''; position:absolute; inset:12px max(16px,calc((100vw - 1240px)/2)) 0; border-radius:30px; pointer-events:none; border:1px solid rgba(123,121,255,.1); opacity:.7; }
+    .slide-label { display:flex; align-items:center; gap:10px; color:#aeb7dc; letter-spacing:.13em; font-size:.72rem; font-weight:700; text-transform:uppercase; margin-bottom:10px; }
+    .slide-label::before { content:''; width:28px; height:1px; background:linear-gradient(90deg,var(--cyan),var(--pink)); box-shadow:0 0 10px var(--cyan); }
+    .signal-orb { position:absolute; width:280px; height:280px; border-radius:50%; filter:blur(2px); background:radial-gradient(circle,rgba(255,79,189,.17),transparent 68%); right:3%; top:8%; pointer-events:none; animation:orb 8s ease-in-out infinite alternate; }
+    @keyframes orb { to { transform:translate(-50px,38px) scale(1.1); } }
+    .research-slide { padding:90px 0; overflow:hidden; }
+    .research-layout { display:grid; grid-template-columns:1.05fr .95fr; gap:22px; align-items:stretch; }
+    .slide-panel { padding:28px; border:1px solid var(--line); border-radius:24px; background:linear-gradient(135deg,rgba(26,29,75,.78),rgba(8,10,35,.82)); box-shadow:0 18px 54px rgba(0,0,0,.25); backdrop-filter:blur(18px); }
+    .publication-chip { display:inline-flex; gap:8px; align-items:center; border:1px solid rgba(69,233,255,.34); color:#dffbff; background:rgba(69,233,255,.08); padding:7px 10px; border-radius:999px; font-size:.78rem; font-weight:600; }
+    .publication-chip::before { content:'◉'; color:var(--cyan); }
+    .research-title { font-size:clamp(1.8rem,4vw,3.5rem); margin:16px 0; line-height:1.05; }
+    .research-title span { color:var(--cyan); }
+    .research-meta { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:20px; }
+    .research-meta div { padding:14px; border-radius:14px; background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.08); color:var(--muted); font-size:.87rem; }
+    .research-meta strong { display:block; color:var(--ink); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:5px; }
+    .sim-chart { min-height:100%; display:flex; flex-direction:column; gap:16px; }
+    .chart-header { display:flex; justify-content:space-between; align-items:center; }
+    .chart-header b { color:var(--ink); } .chart-header span { color:#7effc8; font-size:.8rem; }
+    .wave-chart { height:170px; border-radius:17px; overflow:hidden; position:relative; border:1px solid rgba(118,128,255,.22); background:linear-gradient(180deg,rgba(69,233,255,.08),transparent),repeating-linear-gradient(0deg,transparent 0 33px,rgba(255,255,255,.06) 34px); }
+    .wave-chart svg { position:absolute; inset:0; width:100%; height:100%; }
+    .chart-bars { display:flex; align-items:end; gap:7px; height:104px; padding:12px 8px 0; border-radius:17px; background:rgba(255,255,255,.03); }
+    .chart-bars i { flex:1; display:block; min-width:7px; height:var(--h); border-radius:7px 7px 2px 2px; background:linear-gradient(0deg,var(--cyan),var(--violet),var(--pink)); box-shadow:0 0 12px rgba(69,233,255,.25); animation:barRise .8s both; animation-delay:var(--d); }
+    @keyframes barRise { from { transform:scaleY(.08); transform-origin:bottom; opacity:.25; } }
+    .certificate-slide { padding:88px 0; overflow:hidden; }
+    .certificate-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:15px; }
+    .certificate-card { padding:0; overflow:hidden; color:var(--ink); text-align:left; border:1px solid var(--line); border-radius:18px; background:rgba(15,17,47,.82); transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease; }
+    .certificate-card:hover { transform:translateY(-8px) rotateX(3deg); border-color:var(--cyan); box-shadow:0 18px 38px rgba(0,0,0,.4),0 0 24px rgba(69,233,255,.14); }
+    .certificate-card img { width:100%; aspect-ratio:1.35; object-fit:cover; object-position:50% 20%; border-bottom:1px solid var(--line); }
+    .certificate-card span { display:block; padding:12px 14px 15px; font-size:.86rem; line-height:1.35; }
+    .certificate-card small { display:block; color:var(--cyan); margin-top:4px; }
+    .slide-dots { position:fixed; right:16px; top:50%; z-index:20; transform:translateY(-50%); display:grid; gap:8px; }
+    .slide-dots a { width:8px; height:8px; border-radius:50%; background:rgba(226,233,255,.35); box-shadow:0 0 0 1px rgba(255,255,255,.15); transition:.25s; }
+    .slide-dots a.is-current { height:23px; border-radius:10px; background:linear-gradient(var(--cyan),var(--pink)); box-shadow:0 0 14px rgba(69,233,255,.65); }
+    .cert-dialog { width:min(920px,94vw); padding:0; border:1px solid var(--line); border-radius:20px; background:#0a0c25; color:var(--ink); box-shadow:0 22px 90px #000; }
+    .cert-dialog::backdrop { background:rgba(2,3,13,.8); backdrop-filter:blur(7px); }
+    .cert-dialog img { width:100%; display:block; } .cert-dialog button { position:absolute; right:12px; top:12px; z-index:1; width:38px; height:38px; border-radius:50%; background:rgba(4,6,20,.8); color:#fff; border:1px solid var(--line); font-size:1.2rem; }
+    @media(max-width:900px) { .research-layout{grid-template-columns:1fr}.certificate-grid{grid-template-columns:repeat(2,1fr)}.slide-dots{display:none} }
+    @media(max-width:520px) { .research-slide,.certificate-slide{padding:64px 0}.slide-panel{padding:20px}.research-meta{grid-template-columns:1fr}.certificate-grid{grid-template-columns:1fr}.certificate-card img{aspect-ratio:1.5}.research-title{font-size:2rem} }
     /* ==========================================================================
        CSS Custom Properties (Theme Tokens)
        ========================================================================== */
@@ -2416,6 +2457,21 @@
         align-self: flex-end;
       }
     }
+    /* Final cascade: make the legacy content part of the same midnight dashboard. */
+    body { background:radial-gradient(circle at 12% 2%,#251051 0,transparent 27rem),radial-gradient(circle at 88% 22%,#092d56 0,transparent 32rem),var(--void); color:var(--ink); }
+    .site-header { background:rgba(5,6,20,.7)!important; border-bottom-color:var(--line)!important; }
+    .site-header .brand-text,.site-header .nav-links a,.site-header .brand-link { color:var(--ink)!important; }
+    .site-header .nav-links a:hover,.site-header .nav-links a.active,.site-header .brand-text span { color:var(--cyan)!important; }
+    .hero-section,.metrics-section,.about-section,.experience-section,.skills-section,.projects-section,.education-section,.contact-section { background:transparent!important; }
+    .hero-title,.section-title,.timeline-role,.skill-cat-title,.project-title,.edu-degree,.contact-form-title { color:var(--ink)!important; }
+    .hero-description,.section-lead,.project-description,.timeline-description,.edu-institution,.contact-section p { color:var(--muted)!important; }
+    .metric-card,.fact-card,.timeline-content,.skill-category-card,.project-card,.edu-card,.cert-card,.contact-form-card,.contact-info-card { background:var(--panel)!important; border-color:var(--line)!important; backdrop-filter:blur(15px); }
+    .skill-tab-btn { background:rgba(255,255,255,.04)!important; border-color:var(--line)!important; color:var(--muted)!important; }
+    .skill-tab-btn.is-active { background:linear-gradient(100deg,var(--violet),var(--pink))!important; color:#fff!important; }
+    .portrait-arch-card { border-radius:28px!important; background:linear-gradient(var(--panel),var(--panel)) padding-box,linear-gradient(130deg,var(--cyan),var(--violet),var(--pink),var(--cyan)) border-box!important; }
+    .certificate-card { background:rgba(15,17,47,.82)!important; border-color:var(--line)!important; color:var(--ink)!important; }
+    .certificate-card:hover { border-color:var(--cyan)!important; }
+    .site-footer { background:#040510!important; border-color:var(--line)!important; }
   </style>
 </head>
 <body>
@@ -2591,13 +2647,13 @@
               </svg>
               View Projects
             </a>
-            <a href="poster.html" class="btn btn-gold" title="View Academic Poster">
+            <a href="assets/Dev_Muni_Singh_Resume_with_Certificates.pdf" download class="btn btn-gold" title="Download verified resume">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="2"/>
                 <circle cx="8.5" cy="8.5" r="1.5"/>
                 <path d="M20.4 14.5L16 10 4 20"/>
               </svg>
-              Profile Poster
+              Download Resume
             </a>
           </div>
 
@@ -3253,6 +3309,40 @@
       </div>
     </section>
 
+    <section class="research-slide" id="publication-showcase" aria-label="Research publication showcase">
+      <div class="signal-orb" aria-hidden="true"></div>
+      <div class="container research-layout">
+        <article class="slide-panel reveal">
+          <div class="slide-label">Slide 06 · Research &amp; publications</div>
+          <span class="publication-chip">Manuscript in progress</span>
+          <h2 class="research-title">Precision Agriculture for <span>Sustainable Intensification.</span></h2>
+          <p>A systematic review manuscript for <em>Discover Applied Sciences</em> (Springer). This work is presented as in progress, not as a published paper.</p>
+          <div class="research-meta">
+            <div><strong>Co-authors</strong>Dr. Prabhakar Shukla, Varun Singh, Jaiveer Vikram Singh</div>
+            <div><strong>Research themes</strong>Precision agriculture · GNSS · Embedded systems · Smart farming</div>
+          </div>
+        </article>
+        <aside class="slide-panel sim-chart reveal reveal-delay-1" aria-label="Research activity visualization">
+          <div class="chart-header"><b>Research focus map</b><span>LIVE RESEARCH TRACK</span></div>
+          <div class="wave-chart"><svg viewBox="0 0 600 180" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="waveA" x1="0" x2="1"><stop stop-color="#45e9ff"/><stop offset=".55" stop-color="#8d5cff"/><stop offset="1" stop-color="#ff4fbd"/></linearGradient></defs><path d="M0 136 C58 83 91 152 145 86 S238 42 285 95 S360 148 412 78 S508 39 600 91" fill="none" stroke="url(#waveA)" stroke-width="5"/><path d="M0 156 C80 100 127 166 198 112 S316 144 384 98 S480 135 600 70" fill="none" stroke="#ff4fbd" stroke-opacity=".72" stroke-width="3"/></svg></div>
+          <div class="chart-bars" aria-hidden="true"><i style="--h:32%;--d:.05s"></i><i style="--h:58%;--d:.1s"></i><i style="--h:44%;--d:.15s"></i><i style="--h:73%;--d:.2s"></i><i style="--h:61%;--d:.25s"></i><i style="--h:91%;--d:.3s"></i><i style="--h:67%;--d:.35s"></i><i style="--h:84%;--d:.4s"></i><i style="--h:56%;--d:.45s"></i><i style="--h:76%;--d:.5s"></i></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="certificate-slide" id="certificate-gallery" aria-label="Certificate gallery">
+      <div class="container">
+        <div class="section-header reveal"><div class="slide-label">Slide 05 · Certifications</div><h2 class="section-title">Verified learning credentials</h2><p class="section-lead">Original certificate pages from the supplied resume. Select any preview to enlarge it.</p></div>
+        <div class="certificate-grid">
+          <button class="certificate-card reveal" data-cert="assets/certificates/page-3.png" aria-label="Open Drone Software Technician and Drone Developer certificates"><img src="assets/certificates/page-3.png" loading="lazy" alt="Drone Software Technician and Drone Developer certificates"><span>Drone technology credentials<small>NSQF Level 4 · Drone Developer</small></span></button>
+          <button class="certificate-card reveal reveal-delay-1" data-cert="assets/certificates/page-4.png" aria-label="Open Kisan Drone Operator and Geospatial Technologies certificates"><img src="assets/certificates/page-4.png" loading="lazy" alt="Kisan Drone Operator and Geospatial Technologies certificates"><span>Kisan Drone &amp; Geospatial technologies<small>NSDC · ANRCM</small></span></button>
+          <button class="certificate-card reveal reveal-delay-2" data-cert="assets/certificates/page-5.png" aria-label="Open AI certificates"><img src="assets/certificates/page-5.png" loading="lazy" alt="AI for All and AI for Entrepreneurship certificates"><span>Artificial intelligence learning<small>Intel · CBSE · Skill India</small></span></button>
+          <button class="certificate-card reveal reveal-delay-3" data-cert="assets/certificates/page-6.png" aria-label="Open design and data entry certificates"><img src="assets/certificates/page-6.png" loading="lazy" alt="Graphic Design and Domestic Data Entry certificates"><span>Design &amp; data credentials<small>Graphic Design · Data Entry</small></span></button>
+        </div>
+        <p style="margin-top:20px"><a class="btn btn-secondary" href="assets/Dev_Muni_Singh_Resume_with_Certificates.pdf" download>Download resume &amp; certificates</a></p>
+      </div>
+    </section>
+
     <!-- ========================================================================
          Education & Certifications Section
          ======================================================================== -->
@@ -3484,6 +3574,11 @@
 
   </main>
 
+  <nav class="slide-dots" aria-label="Section progress">
+    <a href="#home" aria-label="Identity card"></a><a href="#dashboard" aria-label="Dashboard"></a><a href="#about" aria-label="About"></a><a href="#experience" aria-label="Experience"></a><a href="#skills" aria-label="Skills"></a><a href="#projects" aria-label="Projects"></a><a href="#publication-showcase" aria-label="Publication"></a><a href="#certificate-gallery" aria-label="Certificates"></a><a href="#education" aria-label="Education"></a><a href="#contact" aria-label="Contact"></a>
+  </nav>
+  <dialog class="cert-dialog" id="cert-dialog"><button type="button" aria-label="Close certificate preview">×</button><img id="cert-dialog-image" alt="Enlarged certificate preview"></dialog>
+
   <!-- ========================================================================
        Footer
        ======================================================================== -->
@@ -3556,6 +3651,35 @@
         const loader = document.getElementById('site-loader');
         if (loader) loader.classList.add('is-hidden');
       });
+
+      // Certificate lightbox uses the original resume certificate previews.
+      const certificateDialog = document.getElementById('cert-dialog');
+      const certificateImage = document.getElementById('cert-dialog-image');
+      document.querySelectorAll('[data-cert]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          if (!certificateDialog || !certificateImage) return;
+          certificateImage.src = card.getAttribute('data-cert');
+          certificateImage.alt = card.querySelector('img').alt;
+          certificateDialog.showModal();
+        });
+      });
+      if (certificateDialog) {
+        certificateDialog.querySelector('button').addEventListener('click', function () { certificateDialog.close(); });
+        certificateDialog.addEventListener('click', function (event) { if (event.target === certificateDialog) certificateDialog.close(); });
+      }
+
+      // Slide navigator mirrors the section currently in view without hijacking scrolling.
+      const slideDots = document.querySelectorAll('.slide-dots a');
+      const slideTargets = Array.from(slideDots).map(function (dot) { return document.querySelector(dot.getAttribute('href')); }).filter(Boolean);
+      if ('IntersectionObserver' in window && slideTargets.length) {
+        const slideObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            slideDots.forEach(function (dot) { dot.classList.toggle('is-current', dot.getAttribute('href') === '#' + entry.target.id); });
+          });
+        }, { threshold:.32 });
+        slideTargets.forEach(function (section) { slideObserver.observe(section); });
+      }
 
       function applyTheme(theme) {
         rootHtml.setAttribute('data-theme', theme);
