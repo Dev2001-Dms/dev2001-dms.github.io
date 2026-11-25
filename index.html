@@ -2472,6 +2472,22 @@
     .certificate-card { background:rgba(15,17,47,.82)!important; border-color:var(--line)!important; color:var(--ink)!important; }
     .certificate-card:hover { border-color:var(--cyan)!important; }
     .site-footer { background:#040510!important; border-color:var(--line)!important; }
+    /* High-clarity type layer: avoids low-contrast text over the glass surfaces. */
+    body, p, li, .dashboard-shell, .research-layout, .certificate-card, .edu-meta, .timeline-meta, .contact-method-val { color:#d9e0f7!important; }
+    .section-eyebrow,.dashboard-kicker,.slide-label,.project-eyebrow,.skill-tab-btn.is-active,.tech-badge { color:#bff8ff!important; }
+    .text-muted,.brand-sub,.badge-label,.metric-desc,.hero-typewriter-prefix,.contact-method-label,.footer-brand div { color:#b8c3e3!important; opacity:1!important; }
+    .dash-tile { color:#f2f5ff!important; background:rgba(12,16,51,.78)!important; }
+    .dash-tile strong,.dash-tile a,.dashboard-title,.research-title,.certificate-card span { color:#f8f9ff!important; }
+    .dash-num,.certificate-card small { color:#8cefff!important; opacity:1!important; }
+    .hero-tag,.tech-badge,.publication-chip { color:#eafcff!important; }
+    .nav-links a,.mobile-nav-links a,.footer-links a,.social-label { color:#edf1ff!important; }
+    a { color:#78edff; } a:hover { color:#ffc0e8; }
+    .btn,.copy-btn { color:#fff!important; font-weight:700!important; text-shadow:0 1px 2px rgba(0,0,0,.35); }
+    .btn-secondary { color:#dffcff!important; background:rgba(34,202,255,.12)!important; border-color:#71efff!important; }
+    .form-label,.contact-form-title { color:#f3f5ff!important; }
+    .form-control { background:rgba(4,7,27,.84)!important; border-color:rgba(151,174,255,.55)!important; color:#f8faff!important; }
+    .form-control::placeholder { color:#b8c3e3!important; opacity:1; }
+    :focus-visible { outline:3px solid #79efff!important; outline-offset:4px; box-shadow:0 0 0 6px rgba(121,239,255,.2)!important; }
   </style>
 </head>
 <body>
@@ -2647,13 +2663,13 @@
               </svg>
               View Projects
             </a>
-            <a href="assets/Dev_Muni_Singh_Resume_with_Certificates.pdf" download class="btn btn-gold" title="Download verified resume">
+            <a href="#contact" class="btn btn-gold" title="Request resume">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="2"/>
                 <circle cx="8.5" cy="8.5" r="1.5"/>
                 <path d="M20.4 14.5L16 10 4 20"/>
               </svg>
-              Download Resume
+              Request Resume
             </a>
           </div>
 
@@ -3334,12 +3350,12 @@
       <div class="container">
         <div class="section-header reveal"><div class="slide-label">Slide 05 · Certifications</div><h2 class="section-title">Verified learning credentials</h2><p class="section-lead">Original certificate pages from the supplied resume. Select any preview to enlarge it.</p></div>
         <div class="certificate-grid">
-          <button class="certificate-card reveal" data-cert="assets/certificates/page-3.png" aria-label="Open Drone Software Technician and Drone Developer certificates"><img src="assets/certificates/page-3.png" loading="lazy" alt="Drone Software Technician and Drone Developer certificates"><span>Drone technology credentials<small>NSQF Level 4 · Drone Developer</small></span></button>
-          <button class="certificate-card reveal reveal-delay-1" data-cert="assets/certificates/page-4.png" aria-label="Open Kisan Drone Operator and Geospatial Technologies certificates"><img src="assets/certificates/page-4.png" loading="lazy" alt="Kisan Drone Operator and Geospatial Technologies certificates"><span>Kisan Drone &amp; Geospatial technologies<small>NSDC · ANRCM</small></span></button>
-          <button class="certificate-card reveal reveal-delay-2" data-cert="assets/certificates/page-5.png" aria-label="Open AI certificates"><img src="assets/certificates/page-5.png" loading="lazy" alt="AI for All and AI for Entrepreneurship certificates"><span>Artificial intelligence learning<small>Intel · CBSE · Skill India</small></span></button>
-          <button class="certificate-card reveal reveal-delay-3" data-cert="assets/certificates/page-6.png" aria-label="Open design and data entry certificates"><img src="assets/certificates/page-6.png" loading="lazy" alt="Graphic Design and Domestic Data Entry certificates"><span>Design &amp; data credentials<small>Graphic Design · Data Entry</small></span></button>
+          <article class="certificate-card reveal"><span>Drone technology credentials<small>Drone Software Technician (NSQF Level 4) · Drone Developer Certification Programme</small></span></article>
+          <article class="certificate-card reveal reveal-delay-1"><span>Precision agriculture learning<small>Kisan Drone Operator · Geospatial Technologies in Agriculture: GIS &amp; Remote Sensing</small></span></article>
+          <article class="certificate-card reveal reveal-delay-2"><span>AI &amp; entrepreneurship learning<small>AI for All - AI Appreciate · AI for Entrepreneurship</small></span></article>
+          <article class="certificate-card reveal reveal-delay-3"><span>Digital skills credentials<small>ADCA · Graphic Designing Course · Domestic Data Entry Operator</small></span></article>
         </div>
-        <p style="margin-top:20px"><a class="btn btn-secondary" href="assets/Dev_Muni_Singh_Resume_with_Certificates.pdf" download>Download resume &amp; certificates</a></p>
+        <p style="margin-top:20px"><a class="btn btn-secondary" href="#contact">Request resume or credential verification</a></p>
       </div>
     </section>
 
@@ -3577,7 +3593,6 @@
   <nav class="slide-dots" aria-label="Section progress">
     <a href="#home" aria-label="Identity card"></a><a href="#dashboard" aria-label="Dashboard"></a><a href="#about" aria-label="About"></a><a href="#experience" aria-label="Experience"></a><a href="#skills" aria-label="Skills"></a><a href="#projects" aria-label="Projects"></a><a href="#publication-showcase" aria-label="Publication"></a><a href="#certificate-gallery" aria-label="Certificates"></a><a href="#education" aria-label="Education"></a><a href="#contact" aria-label="Contact"></a>
   </nav>
-  <dialog class="cert-dialog" id="cert-dialog"><button type="button" aria-label="Close certificate preview">×</button><img id="cert-dialog-image" alt="Enlarged certificate preview"></dialog>
 
   <!-- ========================================================================
        Footer
@@ -3651,22 +3666,6 @@
         const loader = document.getElementById('site-loader');
         if (loader) loader.classList.add('is-hidden');
       });
-
-      // Certificate lightbox uses the original resume certificate previews.
-      const certificateDialog = document.getElementById('cert-dialog');
-      const certificateImage = document.getElementById('cert-dialog-image');
-      document.querySelectorAll('[data-cert]').forEach(function (card) {
-        card.addEventListener('click', function () {
-          if (!certificateDialog || !certificateImage) return;
-          certificateImage.src = card.getAttribute('data-cert');
-          certificateImage.alt = card.querySelector('img').alt;
-          certificateDialog.showModal();
-        });
-      });
-      if (certificateDialog) {
-        certificateDialog.querySelector('button').addEventListener('click', function () { certificateDialog.close(); });
-        certificateDialog.addEventListener('click', function (event) { if (event.target === certificateDialog) certificateDialog.close(); });
-      }
 
       // Slide navigator mirrors the section currently in view without hijacking scrolling.
       const slideDots = document.querySelectorAll('.slide-dots a');
